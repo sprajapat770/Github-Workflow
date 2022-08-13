@@ -52,4 +52,5 @@ jobs:
         run: |
              bin/elasticsearch --version
              curl -XGET 'http://localhost:9200'
+        continue-on-error: true
 
