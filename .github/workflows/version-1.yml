@@ -49,8 +49,6 @@ jobs:
       - name: Check composer version
         run: composer -V
       - name: Check elastic search version
-        run: |
-             bin/elasticsearch --version
-             curl -XGET 'http://localhost:9200'
+        run: curl -XGET 'http://localhost:9200'
         continue-on-error: true
 
