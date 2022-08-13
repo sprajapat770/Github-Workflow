@@ -7,3 +7,5 @@ Learning The Auto-Deployment Process
 - See workflow process under ***Repository -> Actions***
 - Select your workflow
 - See the build process on github interface
+
+-- check versions installed on git workflow image (ubuntu-latest)
