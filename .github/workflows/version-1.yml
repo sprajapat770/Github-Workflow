@@ -61,10 +61,9 @@ jobs:
       - name: Check composer version
         run: composer -V
       - name: Check elastic search version
-        run: curl -XGET 'http://localhost:9200'
-        continue-on-error: true
-      - name: Check elastic search status
-        run: service elasticsearch status
+        env:
+           ELASTIC_SEARCH_URL: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
+        run: curl -XGET $ELASTIC_SEARCH_URL
         continue-on-error: true
       - name: Verify Elasticsearch connection from host
         env:
