@@ -41,7 +41,11 @@ jobs:
       - name: Check php version
         run: php -v
       - name: Check mysql version
+        run: mysql -v
+        continue-on-error: true
+      - name: Check mysql version
         run: mysql --version
+        continue-on-error: true
       - name: Check composer version
         run: composer -V
         
