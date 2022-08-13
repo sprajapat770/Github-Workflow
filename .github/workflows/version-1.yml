@@ -51,4 +51,7 @@ jobs:
       - name: Check elastic search version
         run: curl -XGET 'http://localhost:9200'
         continue-on-error: true
+      - name: Check elastic search status
+        run: service elasticsearch status
+        continue-on-error: true
 
