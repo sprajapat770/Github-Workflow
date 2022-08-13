@@ -38,10 +38,10 @@ jobs:
         run: pwd
       - name: Check directory content
         run: ls -lart
-	- name: Check php version
+      - name: Check php version
         run: php -v
-	- name: Check mysql version
+      - name: Check mysql version
         run: mysql -v
-	- name: Check composer version
+      - name: Check composer version
         run: composer -V
         
