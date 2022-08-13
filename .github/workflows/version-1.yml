@@ -34,3 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Check Directory Path
+        run: pwd
+      - name: Check directory content
+        run: ls -lart
+        
