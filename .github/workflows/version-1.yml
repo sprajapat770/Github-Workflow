@@ -66,4 +66,10 @@ jobs:
       - name: Check elastic search status
         run: service elasticsearch status
         continue-on-error: true
+      - name: Verify Elasticsearch connection from host
+        env:
+           ELASTIC_SEARCH_URL: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
+        run: |
+             echo $ELASTIC_SEARCH_URL
+             curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
 
