@@ -1,5 +1,5 @@
 # Github-Workflow
-
+![](https://github.com/easyawslearn/Terraform-Tutorial/workflows/terraform-tutorials-ci/badge.svg)
 Learning The Auto-Deployment Process
 - Create Simple WorkFlow in **Repository -> Actions -> Simple workflow -> Configure**
 - Change Name of your workflow and Nothing to change in content.
