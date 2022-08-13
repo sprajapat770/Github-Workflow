@@ -19,6 +19,18 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    services:
+      # How to use Redis
+      redis:
+        image: redis
+        ports:
+        - 6379/tcp
+      # How to use Elasticsearch
+      elasticsearch:
+        image: elasticsearch:7.9.3
+        ports:
+        - 9200/tcp
+        options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:

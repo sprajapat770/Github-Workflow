@@ -9,3 +9,4 @@ Learning The Auto-Deployment Process
 - See the build process on github interface
 
 -- check versions installed on git workflow image (ubuntu-latest)
+-- elasticsearch & redis installed on ubuntu-image
