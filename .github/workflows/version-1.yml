@@ -39,5 +39,6 @@ jobs:
               ls -lrt
               cd $GITHUB_WORKSPACE
               echo "workspace directory"
+              cat auth.json
               pwd
               ls -lart
