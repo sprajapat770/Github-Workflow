@@ -9,7 +9,7 @@ RUN adduser suraj sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER suraj
-
+RUN sudo service docker stop && sudo service docker start
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
