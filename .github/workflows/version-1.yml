@@ -53,6 +53,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOCKEN }}
+          logout: false
       - name: Hello world action step
         id: hello
         uses: ./
