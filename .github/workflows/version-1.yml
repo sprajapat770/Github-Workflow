@@ -48,8 +48,9 @@ jobs:
       - name: Check Directory Path
         run: pwd
       - name: Check directory content
-        run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
-        run: ls -lart
+        run: |
+             echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+             ls -lart
       - name: Check php version
         run: php -v
       - name: Check installed php version
