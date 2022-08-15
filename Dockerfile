@@ -10,6 +10,9 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER suraj
 
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
+
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
