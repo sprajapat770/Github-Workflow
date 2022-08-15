@@ -1,12 +1,12 @@
 # Container image that runs your code
-FROM debian:stretch
+FROM ubuntu
 RUN apt-get -y update \
     && apt-get -y install \
     git \
     curl
 
-RUN sudo mkdir /opt/warden \
-    sudo chown $(whoami) /opt/warden \
+RUN mkdir /opt/warden \
+    chown $(whoami) /opt/warden \
     git clone -b master https://github.com/davidalger/warden.git /opt/warden \
     echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
     PATH="/opt/warden/bin:$PATH" \
