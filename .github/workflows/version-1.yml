@@ -31,9 +31,6 @@ jobs:
         ports:
         - 9200/tcp
         options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
-      # How to use Warden
-      php-fpm:
-        image:docker.io/wardenenv/php-fpm
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -51,6 +48,7 @@ jobs:
       - name: Check Directory Path
         run: pwd
       - name: Check directory content
+        run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
         run: ls -lart
       - name: Check php version
         run: php -v
