@@ -1,8 +1,14 @@
 # Container image that runs your code
 FROM ubuntu
 # Create a user group 'xyzgroup'
-RUN adduser --disabled-password --gecos '' newuser
-USER newuser
+RUN apt-get update \
+ && apt-get install -y sudo
+
+RUN adduser --disabled-password --gecos '' suraj
+RUN adduser suraj sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
+USER suraj
 
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
