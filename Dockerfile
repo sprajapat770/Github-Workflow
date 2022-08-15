@@ -2,8 +2,8 @@
 FROM ubuntu
 RUN adduser suraj
 USER suraj
-RUN apt-get -y update \
-    && apt-get -y install \
+RUN sudo apt-get -y update \
+    && sudo apt-get -y install \
     git \
     curl
 RUN sudo apt-get install docker-compose -y
