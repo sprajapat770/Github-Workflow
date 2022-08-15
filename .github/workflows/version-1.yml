@@ -47,3 +47,8 @@ jobs:
               cat auth.json
               pwd
               ls -lart
+      - name: Hello world action step
+        id: hello
+        uses: ./
+        with:
+          who-to-greet: 'Suraj Prajapat'
