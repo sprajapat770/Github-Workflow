@@ -30,6 +30,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Check Directory Path
         run: pwd
+      - name: Check php version
+        run: php -v
       - name: Check directory content
         run: |
              echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
