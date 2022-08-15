@@ -1,12 +1,14 @@
 # Container image that runs your code
 FROM ubuntu
+RUN usermod -a -G test_group suraj
+USER suraj
 RUN apt-get -y update \
     && apt-get -y install \
     git \
     curl
-RUN apt-get install docker-compose -y
-RUN mkdir /opt/warden \
-    && chown $(whoami) /opt/warden \
+RUN sudo apt-get install docker-compose -y
+RUN sudo mkdir /opt/warden \
+    && sudo chown $(whoami) /opt/warden \
     && git clone -b master https://github.com/davidalger/warden.git /opt/warden \
     && echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
     && PATH="/opt/warden/bin:$PATH" \
