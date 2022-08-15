@@ -14,7 +14,7 @@ RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
     curl
-RUN sudo apt-get install systemd
+RUN sudo apt-get install systemd -y
 RUN sudo systemctl status docker
 RUN sudo systemctl restart docker
 RUN sudo apt-get install docker-compose -y
