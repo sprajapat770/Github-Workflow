@@ -1,14 +1,9 @@
 # Container image that runs your code
 FROM ubuntu
 # Create a user group 'xyzgroup'
-RUN apt-get update \
- && apt-get install -y sudo
 
-RUN adduser --disabled-password --gecos '' suraj
-RUN adduser suraj sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+USER root
 
-USER suraj
 RUN sudo service docker stop && sudo service docker start
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
