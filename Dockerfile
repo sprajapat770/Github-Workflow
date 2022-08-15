@@ -4,7 +4,7 @@ RUN apt-get -y update \
     && apt-get -y install \
     git \
     curl
-
+RUN apt-get install docker-compose
 RUN mkdir /opt/warden \
     && chown $(whoami) /opt/warden \
     && git clone -b master https://github.com/davidalger/warden.git /opt/warden \
