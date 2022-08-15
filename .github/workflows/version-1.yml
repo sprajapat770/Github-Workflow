@@ -19,9 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        php-versions: ['7.2']
     services:
       # How to use Redis
       redis:
@@ -34,6 +31,10 @@ jobs:
         ports:
         - 9200/tcp
         options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
+      # How to use Warden
+     php-fpm:
+        image:docker.io/wardenenv/php-fpm
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
