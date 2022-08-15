@@ -9,11 +9,14 @@ RUN adduser suraj sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER suraj
-RUN sudo systemctl status docker
+
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
+    && sudo apt-get install systemd \
     git \
     curl
+
+RUN sudo systemctl status docker
 RUN sudo systemctl restart docker
 RUN sudo apt-get install docker-compose -y
 RUN sudo mkdir /opt/warden
