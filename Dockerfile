@@ -6,11 +6,11 @@ RUN apt-get -y update \
     curl
 
 RUN mkdir /opt/warden \
-    chown $(whoami) /opt/warden \
-    git clone -b master https://github.com/davidalger/warden.git /opt/warden \
-    echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
-    PATH="/opt/warden/bin:$PATH" \
-    warden svc up
+    && chown $(whoami) /opt/warden \
+    && git clone -b master https://github.com/davidalger/warden.git /opt/warden \
+    && echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
+    && PATH="/opt/warden/bin:$PATH" \
+    && warden svc up
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
