@@ -9,11 +9,12 @@ RUN adduser suraj sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER suraj
--v /var/run/docker.sock:/var/run/docker.sock
+RUN sudo systemctl status docker
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
     curl
+RUN sudo systemctl restart docker
 RUN sudo apt-get install docker-compose -y
 RUN sudo mkdir /opt/warden
 RUN sudo chown $(whoami) /opt/warden
