@@ -1,11 +1,8 @@
 # Container image that runs your code
 FROM ubuntu
 # Create a user group 'xyzgroup'
-RUN addgroup -S xyzgroup
-
-# Create a user 'appuser' under 'xyzgroup'
-RUN adduser -S -D -h /usr/app/src appuser xyzgroup
-USER appuser
+RUN adduser --disabled-password --gecos '' newuser
+USER newuser
 
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
