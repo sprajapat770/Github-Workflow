@@ -1,7 +1,12 @@
 # Container image that runs your code
 FROM ubuntu
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1001 ubuntu
-USER ubuntu
+# Create a user group 'xyzgroup'
+RUN addgroup -S xyzgroup
+
+# Create a user 'appuser' under 'xyzgroup'
+RUN adduser -S -D -h /usr/app/src appuser xyzgroup
+USER appuser
+
 RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
