@@ -15,14 +15,14 @@ RUN sudo apt-get -y update \
     git \
     curl
 RUN sudo apt-get install docker-compose -y
-RUN sudo mkdir /opt/warden \
-    || sudo chown $(whoami) /opt/warden \
-    || git clone -b master https://github.com/davidalger/warden.git /opt/warden \
-    || echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
-    || PATH="/opt/warden/bin:$PATH" \
-    || docker ps \
-    || docker ps -a  \
-    || warden svc up
+RUN sudo mkdir /opt/warden
+RUN sudo chown $(whoami) /opt/warden
+RUN git clone -b master https://github.com/davidalger/warden.git /opt/warden
+RUN echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc
+RUN PATH="/opt/warden/bin:$PATH"
+RUN docker ps
+RUN docker ps -a
+RUN warden svc up
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
