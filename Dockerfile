@@ -20,6 +20,7 @@ RUN sudo mkdir /opt/warden \
     && git clone -b master https://github.com/davidalger/warden.git /opt/warden \
     && echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc \
     && PATH="/opt/warden/bin:$PATH" \
+    && docker ps \
     && warden svc up
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
