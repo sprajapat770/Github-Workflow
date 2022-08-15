@@ -17,17 +17,13 @@ RUN sudo apt-get -y update \
     && sudo apt-get -y install \
     git \
     curl
-RUN sudo apt-get install systemd -y
-RUN sudo systemctl status docker
-RUN sudo systemctl restart docker
+
 RUN sudo apt-get install docker-compose -y
 RUN sudo mkdir /opt/warden
 RUN sudo chown $(whoami) /opt/warden
 RUN git clone -b master https://github.com/davidalger/warden.git /opt/warden
 RUN echo 'export PATH="/opt/warden/bin:$PATH"' >> ~/.bashrc
 RUN PATH="/opt/warden/bin:$PATH"
-RUN docker ps
-RUN docker ps -a
 RUN warden svc up
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
