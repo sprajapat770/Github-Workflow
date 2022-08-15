@@ -1,6 +1,6 @@
 # Container image that runs your code
 FROM ubuntu
-RUN usermod -a -G test_group suraj
+RUN adduser suraj
 USER suraj
 RUN apt-get -y update \
     && apt-get -y install \
