@@ -10,3 +10,6 @@ Learning The Auto-Deployment Process
 
 -- check versions installed on git workflow image (ubuntu-latest)
 -- elasticsearch & redis installed on ubuntu-image
+-- set current php version on ubuntu image using 
+-- update permission command
+   git update-index --chmod=+x 'name-of-shell-script'
