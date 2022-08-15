@@ -78,7 +78,5 @@ jobs:
              curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
       - name: Add HTTP basic auth credentials
         run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
-      - name: Install dependencies
-        uses: php-actions/composer@v6
-      - name: Remove auth.json file
-        run: rm -f $GITHUB_WORKSPACE/auth.json
+      - name: docker warden image pull
+        run: docker pull wardenenv/php-fpm
