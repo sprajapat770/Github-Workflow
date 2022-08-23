@@ -1,3 +1,8 @@
 
 github-tocken
 custom-workflow
+.idea/deployment.xml
+.idea/modules.xml
+.idea/Github-Workflow.iml
+entrypoint_2.sh
+.idea/vcs.xml
